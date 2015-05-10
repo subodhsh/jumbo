@@ -1,0 +1,26 @@
+{
+  // Required
+
+  "manifest_version": 2,
+  "name": "SpeedD",
+  "description": "This extension bookmarks your pages so that the same could be synced across multiple chrome browsers",
+  "version": "1.0",
+
+  "browser_action": {
+          "default_icon": {                    // optional
+            "19": "19x19.png",// optional
+            "38": "32x32.png"
+          },
+          "default_title": "SpeedD - Speed dial",      // optional; shown in tooltip
+          "default_popup": "popup.html"        // optional
+        },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "identity",
+    "identity.email",
+    "alarms"
+  ],
+  "author" : "subodh shetty"
+}
