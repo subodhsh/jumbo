@@ -14,7 +14,7 @@ button:onhover{
   cursor: pointer;  
 }
 .box {
-    background-color: #FFCC99;
+    /*background-color: #FFCC99;*/
     width: 100px;
     float:left;
     margin:5px;
@@ -184,7 +184,7 @@ button:onhover{
 }
 
 .notif-bar{
-    background: #f6f6f6;
+    background: #FFEB3B;
   
   padding: 1px 0 2px 3px;
   margin: 0;
@@ -199,7 +199,7 @@ h3
 
 .notif-bar .notifcatn{
   float: right;
-  width:350px;
+  width:13em;
   -webkit-margin-before: 1em;
   -webkit-margin-after: 1em;
   -webkit-margin-start: 0px;
