@@ -3,11 +3,21 @@
 <head>
 	<title> Speed Dial Project</title>
 	<link href="/css/css.css" rel="stylesheet" type="text/css">
-   <script  type="text/javascript" src="/js/jq.min.js"></script> 
-  <script type="text/javascript" src="js/jquery.sortable.min.js"></script>
 
-   <script type="text/javascript" src="js/js.js"></script>
+  <!--<script type="text/javascript" src="js/jquery.sortable.min.js"></script>-->
+  
  <style>
+
+ [draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
+
    
     .sortable {
      
@@ -28,6 +38,10 @@
       position: relative;
     }
     
+
+    .box.over {
+  border: 2px dashed #000;
+}
   
     
   </style>
@@ -40,10 +54,12 @@
     <input type="text" id="boxurl"/><button class="green-butt">Add</button><button class="red-butt">back</button><img src="/img/plus2.png"/>
   </div>-->
   <div class="notif-bar">
-    <h3>Speed Dialer</h3><div class="notifcatn"><a href="#" id="addCurPage"> Add Current page</a></div>
+    <h3>Speed Dialer</h3><div class="notifcatn"><!--<a href="#" id="addCurPage" class="green-butt"> Add Current page</a>-->
+    <button class="green-butt pointer">Add Current Page</button>
+    </div>
   
   </div>
-<div id="container" class="sortable grid">
+<div id="container" class="grid">
     <!--<div class="box" title="Basic Tooltip">
         <div class="content"><img src="/img/favicon5.ico"></div>
         <div class="base">Basic Title1</div>
@@ -65,6 +81,11 @@
 
 
 </div>
-
+<div class="footer">
+THis is notification
+</div>
+<script  type="text/javascript" src="/js/jq.min.js"></script> 
+   <script type="text/javascript" src="js/js.js"></script>
+<script type="text/javascript" src="js/dragdrop.js"></script>
 </body>
 </html>
