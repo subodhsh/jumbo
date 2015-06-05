@@ -1,13 +1,6 @@
 $(function() {
 
 
-
-  var arrGlobal=[];
-  var arrGlobalKnownHosts=["gmail","mail.google","twitter","google"];
-  var strGlobalFavPath = "/img/fav/";
-  var strGlobalFavExt = ".png";
-  var strGlobalUnknownImg = "unknown";
-
 function getThumbnail(favurl,url){
 
         url = url.toLowerCase();
@@ -87,22 +80,13 @@ function getThumbnail(favurl,url){
       //return favurl;
  
 }
-  // Save logic
-function saveToStorage(obj) {
-       
-        chrome.storage.local.set(obj, function() {
-          // Notify that we saved.
-          //alert('Settings saved');
-          //console.log(obj);
-        });
-}
 
 
 
 
 function populate(doeffect){
                     $("#container").empty();
-                     chrome.storage.local.get("1", function(items) {
+                     chrome.storage.sync.get("1", function(items) {
                                                                   
                                                                     if(typeof(items) != "undefined"){
 
@@ -194,12 +178,7 @@ function populate(doeffect){
                                                                           else // nothing in the list
                                                                           {
                                                                               $("#container").empty();
-                                                                              $("#container").append('<div class="empty">\
-                                                                                <img src="/img/face.png" width="75" height="75"/>\
-                                                                                <div class="wtrmrk">\
-                                                                                <span>List Empty!</span>\
-                                                                                </div>\
-                                                                                </div>');
+                                                                              $("#container").append('<div class="empty"><img src="/img/face.png" width="75" height="75"/><p class="msgP">List Empty!</p></div>');
                                                                           }
 
 
@@ -210,12 +189,7 @@ function populate(doeffect){
                                                                       else  // nothing in the list
                                                                       {
                                                                         $("#container").empty();
-                                                                        $("#container").append('<div class="empty">\
-                                                                          <img src="/img/face.png" width="75" height="75"/>\
-                                                                          <div class="wtrmrk">\
-                                                                          <span>List Empty!</span>\
-                                                                          </div>\
-                                                                          </div>');
+                                                                        $("#container").append('<div class="empty"><img src="/img/face.png" width="75" height="75"/><p class="msgP">List Empty!</p></div>');
 
                                                                       }
                                                                                 
@@ -300,42 +274,62 @@ function populate(doeffect){
                       return false;
                     }
       });
+
+      $("img.clearall").click(function(){
+                              if(confirm("This will clear ALL the Speed Dials below ? Do you want to continue ?"))
+                              {
+                                  clearStorage();
+                                  populate(false);
+                              }
+
+      });
     
         $(".green-butt").click(function(){
             chrome.tabs.query ({'active': true}, function(tabs) {
-                var url = tabs[0].url;
-                var title = tabs[0].title.substr(0,5);
-                //alert(tabs[0].favIconUrl);
-                var imgd = getThumbnail(tabs[0].favIconUrl,url);
-                var ht;
-                
-                //if(img != "undefined"){
+                var url = tabs[0].url.toLowerCase();
+
+               // var chk = $.grep(arrGlobal, function(e){ return e.url == url.toLowerCase(); });
+               indexes = $.map(arrGlobal, function(obj, index) {
+                      if(obj.url == url) {
+                          return index;
+                      }
+                  });
+
+               
+               
+                if(indexes[0] != undefined)
+                {
+
+
+                  //var tmpObj = arrGlobal[indexes[0]-1];
                   
-                  //var tmpImg = new Image();
-                    //tmpImg.src = img;
+                 
 
-                    //$(tmpImg).error(function(){
-                      arrGlobal.push({title:tabs[0].title,url:tabs[0].url,img:imgd}) 
-                      saveToStorage({"1":arrGlobal});
-                      populate(true);
-                    //});
+                  //arrGlobal.splice(0, 0, tmpObj);  // only inserts to first index   
 
-                    //$(tmpImg).one('load',function(){ 
-//                         
-                      //ht = tmpImg.height;
-//                     
-                      //arrGlobal.push({title:tabs[0].title,url:tabs[0].url,img:img,imght:ht}) 
-                      //saveToStorage({"1":arrGlobal});
-                      //populate();
-//                     
-                    //});
-                //}
-                //else{
-//                      
-                      //arrGlobal.push({title:tabs[0].title,url:tabs[0].url,img:'/img/unknown.png',imght:'32'}) 
-                      //saveToStorage({"1":arrGlobal});
-                      //populate();
-                //}
+                  arrGlobal = arraymove(arrGlobal,indexes[0],arrGlobal.length-1);              
+                  console.log(arrGlobal);
+                  saveToStorage({"1":arrGlobal});
+                  populate(true);
+                  
+                }
+
+                else
+                {
+               
+
+                      var title = tabs[0].title.substr(0,5);
+                      //alert(tabs[0].favIconUrl);
+                      var imgd = getThumbnail(tabs[0].favIconUrl,url);
+                      var ht;
+                      
+                     
+                            arrGlobal.push({title:tabs[0].title,url:tabs[0].url,img:imgd}) 
+                            saveToStorage({"1":arrGlobal});
+                            populate(true);
+                    
+                }
+                
 
 
             });

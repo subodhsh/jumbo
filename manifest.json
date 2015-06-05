@@ -14,6 +14,9 @@
           "default_title": "SpeedD - Speed dial",      // optional; shown in tooltip
           "default_popup": "popup.html"        // optional
         },
+  "background": {
+    "scripts": ["js/jq.min.js","js/common.js","js/background.js"]
+  },
   "permissions": [
     "activeTab",
     "storage",

@@ -1,5 +1,17 @@
 
+$(function() {
 
+              function saveToStorage(obj) {
+       
+                          chrome.storage.local.set(obj, function() {
+                          // Notify that we saved.
+                          //alert('Settings saved');
+                          //console.log(obj);
+              });
+}
+
+
+});
       
 
         
