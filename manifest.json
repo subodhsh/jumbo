@@ -2,8 +2,8 @@
   // Required
 
   "manifest_version": 2,
-  "name": "SpeedD",
-  "description": "This extension bookmarks your pages so that the same could be synced across multiple chrome browsers",
+  "name": "Speed Dial Bookmarks",
+  "description": "This extension is a quick speed dialffor all your bookmarks. Get it to quicken your browser experience.",
   "version": "1.0",
 
   "browser_action": {
@@ -14,16 +14,13 @@
           "default_title": "SpeedD - Speed dial",      // optional; shown in tooltip
           "default_popup": "popup.html"        // optional
         },
-  "background": {
-    "scripts": ["js/jq.min.js","js/common.js","js/background.js"]
-  },
   "permissions": [
     "activeTab",
     "storage",
     "tabs",
     "identity",
-    "identity.email",
-    "alarms"
+    "identity.email"
+   
   ],
   "author" : "subodh shetty"
 }

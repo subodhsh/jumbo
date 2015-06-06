@@ -14,12 +14,12 @@ function getThumbnail(favurl,url){
            
            if(arrGlobalKnownHosts.indexOf(temphost) > 0)
            {
-            //alert(temphost);
+            
               return strGlobalFavPath + temphost + strGlobalFavExt;
            }
            else if(arrGlobalKnownHosts.indexOf(tempsubhost) > 0)
            {
-               //alert(tempsubhost);
+              
             return strGlobalFavPath + tempsubhost + strGlobalFavExt;
            }
            else
@@ -34,50 +34,6 @@ function getThumbnail(favurl,url){
            }
         }
 
-
-  //try{
-      //var l= new URL(url);
-  //}
-    //catch(e){
-            //return favurl;
-  //}
-//
-    //url = url.toLowerCase();
-    //var host = l.hostname.replace('http://','').replace('https://','').replace('www.','');
-     //var split = host.split('.');
-//
-//     
-//
-     //if(split.length !=0)
-     //{
-             //if(split.length > 2){  // has subdomains
-                  //var tmpImg = new Image();
-                  //tmpImg.src = '/img/fav/' + split[split.length-2] + '.png';
-//
-                  //$(tmpImg).error(function(){
-//
-                                //return favurl;
-                            //});
-//                  
-             //}
-             //else{  // has no subdomains
-//                
-               //var tmpImg = new Image();
-//               
-                //var imgurl = '/img/fav/' + split[split.length-2] + '.png';
-                  //tmpImg.src = imgurl
-//                   
-                  //$(tmpImg).error(function(){
-//                                
-                                //return favur;
-                            //});
-                   ////alert("final");
-              ////alert(host.substr(0,host.indexOf('.')));
-              //return imgurl;
-             //}
-      //}
-//
-      //return favurl;
  
 }
 
@@ -91,7 +47,7 @@ function populate(doeffect){
                                                                     if(typeof(items) != "undefined"){
 
                                                                       if(Object.keys(items).length > 0) {
-//console.log(items);
+
                                                                         arr = items["1"];
 
                                                                         if(arr)
@@ -148,29 +104,8 @@ function populate(doeffect){
                                                                                            }
                                                                                            else
                                                                                            {}
-
-                                                                                         
                                                                                     
-                                                                                     //$("#container").sortable().bind('sortupdate', function() { // TO inject sortablity to dynamically addded eleements
-                                                                                          //Triggered when the user stopped sorting and the DOM position has changed.
-                                                                                          //arrGlobal=[];
-                                                                                          //$('.box').each(function() { 
-//
-                                                                                              //var obj={};
-                                                                                              //obj.title=$(this).attr('title');
-                                                                                              //obj.url=$(this).attr('data-url');   
-                                                                                              //obj.img=$(this).attr('data-img');          
-//
-                                                                                             //arrGlobal.push(obj) ;
-                                                                                             //saveToStorage({"1":arrGlobal});
-//
-//
-//
-//
-                                                                                          //});
-                                                                                          
-                                                                                     // });; 
-
+                                                                                    
                                                                                     arrGlobal.push(item) ;
                                                                                
                                                                               });
@@ -201,17 +136,9 @@ function populate(doeffect){
 
 }
 
-  // Watermarking magic
-
+  
               populate(false);             
-              //var watermark = 'Add the URL that you want to Speed Dial';
-             //$('.addContent input').blur(function(){
-              //if ($(this).val().length == 0)
-                //$(this).val(watermark).addClass('watermark');
-             //}).focus(function(){
-              //if ($(this).val() == watermark)
-                //$(this).val('').removeClass('watermark');
-             //}).val(watermark).addClass('watermark');
+            
 
 
 
@@ -239,18 +166,7 @@ function populate(doeffect){
         $(this).hide();
      });
 
-     //$(".green-butt").click(function(){  // Add URL
-              //var arrVal=[];
-              //arrGlobal.push({title:'Gmail',url:$('#boxurl').val(),img:'sdsds'}) 
-              //saveToStorage({"1":arrGlobal});
-//
-              //$(this).parent().children().hide();
-              //$(".addContent img").toggle("left");
-              //$(".green-butt,.red-butt,.addContent input").hide();
-              //populate(); 
-//
-//    
-     //});
+   
 
       $(".red-butt").click(function(){
         $(this).parent().children().hide();
@@ -288,7 +204,7 @@ function populate(doeffect){
             chrome.tabs.query ({'active': true}, function(tabs) {
                 var url = tabs[0].url.toLowerCase();
 
-               // var chk = $.grep(arrGlobal, function(e){ return e.url == url.toLowerCase(); });
+              
                indexes = $.map(arrGlobal, function(obj, index) {
                       if(obj.url == url) {
                           return index;
@@ -300,12 +216,6 @@ function populate(doeffect){
                 if(indexes[0] != undefined)
                 {
 
-
-                  //var tmpObj = arrGlobal[indexes[0]-1];
-                  
-                 
-
-                  //arrGlobal.splice(0, 0, tmpObj);  // only inserts to first index   
 
                   arrGlobal = arraymove(arrGlobal,indexes[0],arrGlobal.length-1);              
                   console.log(arrGlobal);
@@ -319,7 +229,7 @@ function populate(doeffect){
                
 
                       var title = tabs[0].title.substr(0,5);
-                      //alert(tabs[0].favIconUrl);
+                    
                       var imgd = getThumbnail(tabs[0].favIconUrl,url);
                       var ht;
                       
