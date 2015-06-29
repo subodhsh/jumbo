@@ -1,6 +1,15 @@
 $(function() {
 
 
+function ImgError(source){
+  //source.src = "/images/noimage.gif";
+  //source.onerror = "";
+  alert(1);
+  return true;
+}
+
+
+
 function getThumbnail(favurl,url){
 
         url = url.toLowerCase();
@@ -26,7 +35,7 @@ function getThumbnail(favurl,url){
            {
 
               if(favurl != undefined)
-              {
+              {                
                 return favurl;
               }
               else
@@ -42,7 +51,9 @@ function getThumbnail(favurl,url){
 
 function populate(doeffect){
                     $("#container").empty();
-                     chrome.storage.sync.get("1", function(items) {
+                     chrome.storage.local.get("1", function(items) {
+
+                                                                    console.log(items);
                                                                   
                                                                     if(typeof(items) != "undefined"){
 
@@ -60,6 +71,7 @@ function populate(doeffect){
                                                                             var title;
                                                                             var img;
                                                                            
+                                                                              arrGlobal=[];
 
                                                                               $.each(arr,function(i, item)
                                                                               {
@@ -180,8 +192,10 @@ function populate(doeffect){
                     {
                       var removeitem = $(this).parent().parent().attr("data-url");
                       arrGlobal = $.grep(arrGlobal, function(e){ return e.url != removeitem; });
+                      console.log(arrGlobal);
                       saveToStorage({"1":arrGlobal});
-                     $(this).parent().parent().remove();
+                    
+                      populate(false);
                      
                      return false;
                     }
@@ -212,14 +226,20 @@ function populate(doeffect){
                   });
 
                
-               
+              
                 if(indexes[0] != undefined)
                 {
-
-
-                  arrGlobal = arraymove(arrGlobal,indexes[0],arrGlobal.length-1);              
-                  console.log(arrGlobal);
-                  saveToStorage({"1":arrGlobal});
+                   
+                    if(indexes[0] == arrGlobal.length-1)
+                    {
+                        
+                    }
+                    else
+                    {
+                      arrGlobal = arraymove(arrGlobal,indexes[0],arrGlobal.length-1);              
+                      console.log(arrGlobal);
+                      saveToStorage({"1":arrGlobal});
+                    }
                   populate(true);
                   
                 }
@@ -234,7 +254,7 @@ function populate(doeffect){
                       var ht;
                       
                      
-                            arrGlobal.push({title:tabs[0].title,url:tabs[0].url,img:imgd}) 
+                            arrGlobal.push({title:tabs[0].title,url:tabs[0].url.toLowerCase(),img:imgd.toLowerCase()}) 
                             saveToStorage({"1":arrGlobal});
                             populate(true);
                     

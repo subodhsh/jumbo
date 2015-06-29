@@ -1,7 +1,7 @@
 /* Globals */
 
   var arrGlobal=[];
-  var arrGlobalKnownHosts=["gmail","mail.google","twitter","google"];
+  var arrGlobalKnownHosts=["gmail","mail.google","twitter","google","amazon","bookmyshow","dropbox","ebay","facebook","flickr","foursquare","github","googleplus","hdfc","icicibank","instagram","linkedin","soundcloud","tumblr","yahoo","w3schools","youtube"];
   var strGlobalFavPath = "/img/fav/";
   var strGlobalFavExt = ".png";
   var strGlobalUnknownImg = "unknown";
@@ -20,16 +20,16 @@
   // Save logic
 function saveToStorage(obj) {
        
-        chrome.storage.sync.set(obj, function() {
+        chrome.storage.local.set(obj, function() {
           // Notify that we saved.
           //alert('Settings saved');
-          console.log(obj);
+          //console.log(obj);
         });
 }
 
 function clearStorage(){
-	chrome.storage.sync.clear(function(){
-						populate(false);
+	chrome.storage.local.clear(function(){
+						
 
 	});
 }

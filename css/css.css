@@ -1,37 +1,31 @@
 body{
 
-    width:455px;
+    width:32em;
     margin:0;
     padding:0;
-
     font: 400 14px/20px "Helvetica", Arial, sans-serif;
-font-family: Helvetica, Arial, sans-serif;
-font-size: 14px;
-font-weight: 400;
-line-height: 20px;
-background-color: #F3E9E8;
-border-radius: 5px;
-;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    background-color: #F3E9E8;
+    border-radius: 5px;
+
 }
 button:onhover{
   cursor: pointer;  
 }
 .box {
-    /*background-color: #FFCC99;*/
-    width: 100px;
+   
+    width: 23%;
     float:left;
-    margin:5px;
+    margin:0.3em;
     word-wrap: break-word;
-    height: 50px;
+    height: 3.5em;
     position: relative;
     
 }
 .box:hover{
     cursor: move; 
-}
-
-.addContent img:hover{
-  cursor: pointer;  
 }
 
 .box img{
@@ -53,114 +47,39 @@ button:onhover{
 #container{
     clear:both;
     margin-left:5px;
-    min-height: 100px;
-
-
+  
 }
 
-.addContent{
-    float:right;
-  }
-
-.addContent input{
-    vertical-align: top;
-    height: 25px;
-    margin-right: 10px;
-    display: none;
-    width: 280px;
-}
-
-
-.watermark
-{
-    color: #999;
-}
-
-
-.addContent .green-butt{
-   clear:both;
-     height: 28px;
-    width: 48px; 
-     padding:10px;
-     vertical-align: top;
-      margin-right:3px;
-}
 
 .green-butt {
    
-   
-    /*adjust the roundness*/
-    
-    webkit-border-radius: 4px;
-    /*adjust height and width*/
-  
-    /*change border colour*/
+    webkit-border-radius: 4px;   
     border:1px #4cae4c solid;
     background-color: #5cb85c;
     color:#fff;
-   
-      padding:5px;
+    padding:0.3em;
 }
 
 .green-butt :hover{
-     color: #fff;
+  color: #fff;
   background-color: #449d44;
   border-color: #398439;
 }
 
-.addContent .red-butt{
-   margin-right:3px;
-    clear:both;
-    padding:5px;
-      height: 28px;
-    width: 48px; 
-     display: none;
-      vertical-align: top;
-}
-
-.red-butt {
-       margin-right:3px;
-    clear:both;
-    padding:5px;
-    /*adjust the roundness*/
-    border-radius: 4px;
-    webkit-border-radius: 4px;
-    /*adjust height and width*/
-  
-    /*change border colour*/
-    border:1px #d43f3a solid;
-  color: #fff;
-  background-color: #d9534f;
-   
-}
-
-.red-butt :hover{
-     color: #fff;
-  background-color: #c9302c;
-  border-color: #ac2925;
-}
-
 .overlay .blue-butt{
-   height: 28px;
-    width: 48px; 
+   height: 2em;
+   width: 3.4em; 
 }
 
 
 
 .blue-butt {
-    
-    /*adjust the roundness*/
     border-radius: 4px;
     webkit-border-radius: 4px;
-    /*adjust height and width*/
-   
-    /*change border colour*/
-     color: #fff;
-     padding:5px;
-     
-     background-color: #337ab7;
-  border-color: #2e6da4;
-     
+    color: #fff;
+    padding:0.3em;
+    background-color: #337ab7;
+    border-color: #2e6da4;
 }
 
 .blue-butt:hover{
@@ -180,64 +99,29 @@ button:onhover{
   cursor:pointer;
 }
 .base{
-  
   position: relative;
   bottom: 0;
-  /* margin: auto auto; */
   text-align: center;
   background-color: black;
   color: white;
-  /* margin: 0; */
-  /* padding: 0; */
-  height: 23px;
+  height: 1.65em;
   width: 100%;
-  /* vertical-align: middle; */
-  
 }
 
 .notif-bar{
-   /* background: #FFEB3B;*/
   border-bottom:1px dashed grey;
-  
-  padding: 1px 0 5px 3px;
+  padding: 1px 0 0.3em 0.2em;
   margin: 0;
-height: 35px
-
+  height: 2.5em;
 }
 h3
 {
   float:left;
-   background-image: url("/19x19.png");
+  background-image: url("/19x19.png");
   background-repeat: no-repeat;
   background-position: left bottom;
   padding-left: 1.4em;
  
-}
-
-.notif-bar .notifcatn{
-  float: right;
-  width:13em;
-  -webkit-margin-before: 1em;
-  -webkit-margin-after: 1em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-  text-align: right;
-  
-}
-.notif-bar a{
-  font-size: 14px;
-  cursor: pointer;
-  color: #4089F8;
-  padding-right:10px;
-}
-
-
-.gutter-space{
-  margin-top: 16px;
-}
-
-.gutter-sp{
-  padding-top:10px;
 }
 
 .pointer{
@@ -251,24 +135,9 @@ height:32px;
 
  .empty
    {
-    height: 75px;
-    width: 75px;
+    height: 5.3em;
+    width: 5.3em;
     border:1px solid black;
-   }
-
-   .msg
-   {
-    float:right;
-    background-color: black;
-    color:White;
-    height:100%;
-   
-   }
-
-   .msg p
-   {
-    padding:0;
-    margin:0;
    }
 
    .empty img{
@@ -280,30 +149,10 @@ height:32px;
     color:white;
     background-color:black;
     position: relative;
-    bottom:39px;
+    bottom:2.77em;
     text-align: center;
    }
  
-
-
-   /*******************/
-
-   .footer{
-    
-  
-   position: fixed;
-   bottom:0; 
-   height:20px;   /* Height of the footer */
-   
-
-      border: 1px dashed black;
-      width: 100%;
-      background-color: #FF7F27;
-      color: White;
-      margin-top:10px;
-       margin-left:5px;
-   }
-
    .clear
    {
     clear:both;
@@ -326,12 +175,12 @@ body::-webkit-scrollbar-thumb {
    
    /*******clearAll*****/
 
-     .column-left{ float: left; width: 33%; }
+.column-left{ float: left; width: 33%; }
 .column-right{ float: right; width: 33%;  }
 .column-right img.clearall{ 
  position: relative; 
-  top: 6px;
-  left:5px;
+  top: 0.4em;
+  left:0.3em;
   cursor:pointer;
 }
 
@@ -343,12 +192,11 @@ body::-webkit-scrollbar-thumb {
   -khtml-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-  /* Required to make elements draggable in old WebKit */
-  -khtml-user-drag: element;
+   -khtml-user-drag: element;
   -webkit-user-drag: element;
 }
 
 
-    .box .over {
+  .box .over {
   border: 2px dashed #000;
 }

@@ -1,26 +1,24 @@
 {
-  // Required
 
   "manifest_version": 2,
-  "name": "Speed Dial Bookmarks",
-  "description": "This extension is a quick speed dialffor all your bookmarks. Get it to quicken your browser experience.",
-  "version": "1.0",
-
+   "content_security_policy": "script-src 'self' https://google-analytics.com; object-src 'self'",
+  "name": "Speed Dialer",
+  "version":"1.0.0.0",
+ "description": "This extension is a quick speed dial for all your bookmarks. Download it to quicken your browser experience.",
   "browser_action": {
-          "default_icon": {                    // optional
-            "19": "19x19.png",// optional
-            "38": "32x32.png"
+          "default_icon": {                    
+            "19": "19x19.png",
+            "32": "32x32.png",
+            "24": "24x24.png",
+            "48": "48x48.png"
           },
-          "default_title": "SpeedD - Speed dial",      // optional; shown in tooltip
-          "default_popup": "popup.html"        // optional
+          "default_title": "Speed Dialer",      
+          "default_popup": "popup.html"       
         },
   "permissions": [
     "activeTab",
     "storage",
-    "tabs",
-    "identity",
-    "identity.email"
-   
-  ],
+    "tabs"   
+  ], 
   "author" : "subodh shetty"
 }
